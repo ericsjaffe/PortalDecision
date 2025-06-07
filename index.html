@@ -15,13 +15,15 @@
 
   <main class="container">
     {% for update in updates %}
-    <div class="card">
-      <h2>{{ update.title }}</h2>
-      <p><strong>Sport:</strong> {{ update.sport }}</p>
-      <p><strong>From:</strong> {{ update.from_school }}</p>
-      <p><strong>To:</strong> {{ update.to_school }}</p>
-      <a href="{{ update.link }}" class="read-more" target="_blank">Read More</a>
-    </div>
+      <div class="card">
+        <h2>{{ update.title }}</h2>
+        <p><strong>Sport:</strong> {{ update.sport }}</p>
+        <p><strong>From:</strong> {{ update.from_school }}</p>
+        <p><strong>To:</strong> {{ update.to_school }}</p>
+        <a href="{{ update.link }}" class="read-more" target="_blank">Read More</a>
+      </div>
+    {% else %}
+      <p>No updates available at the moment.</p>
     {% endfor %}
   </main>
 
