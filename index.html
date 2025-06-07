@@ -1,33 +1,33 @@
-<!DOCTYPE html PUBLIC "-//W3C//DTD HTML 4.01//EN" "http://www.w3.org/TR/html4/strict.dtd">
-<html>
+<!DOCTYPE html>
+<html lang="en">
 <head>
-  <meta http-equiv="Content-Type" content="text/html; charset=utf-8">
-  <meta http-equiv="Content-Style-Type" content="text/css">
-  <title></title>
-  <meta name="Generator" content="Cocoa HTML Writer">
-  <meta name="CocoaVersion" content="2575.4">
-  <style type="text/css">
-    p.p1 {margin: 0.0px 0.0px 0.0px 0.0px; font: 12.0px Times; -webkit-text-stroke: #000000}
-    span.s1 {font-kerning: none}
-  </style>
+  <meta charset="UTF-8">
+  <title>PortalDecision - Transfer Portal Updates</title>
+  <link rel="stylesheet" href="/static/style.css">
+  <meta http-equiv="refresh" content="60">
 </head>
 <body>
-<p class="p1"><span class="s1">&lt;!DOCTYPE html&gt;</span></p>
-<p class="p1"><span class="s1">&lt;html&gt;</span></p>
-<p class="p1"><span class="s1">&lt;head&gt;</span></p>
-<p class="p1"><span class="s1"><span class="Apple-converted-space">    </span>&lt;title&gt;PortalDecision - Transfer Portal Updates&lt;/title&gt;</span></p>
-<p class="p1"><span class="s1"><span class="Apple-converted-space">    </span>&lt;link rel="stylesheet" href="/static/style.css"&gt;</span></p>
-<p class="p1"><span class="s1"><span class="Apple-converted-space">    </span>&lt;meta http-equiv="refresh" content="60"&gt;</span></p>
-<p class="p1"><span class="s1">&lt;/head&gt;</span></p>
-<p class="p1"><span class="s1">&lt;body&gt;</span></p>
-<p class="p1"><span class="s1"><span class="Apple-converted-space">    </span>&lt;h1&gt;🏈 NCAA Transfer Portal News&lt;/h1&gt;</span></p>
-<p class="p1"><span class="s1"><span class="Apple-converted-space">    </span>&lt;ul id="updates"&gt;</span></p>
-<p class="p1"><span class="s1"><span class="Apple-converted-space">        </span>{% for update in updates %}</span></p>
-<p class="p1"><span class="s1"><span class="Apple-converted-space">        </span>&lt;li&gt;{{ update }}&lt;/li&gt;</span></p>
-<p class="p1"><span class="s1"><span class="Apple-converted-space">        </span>{% endfor %}</span></p>
-<p class="p1"><span class="s1"><span class="Apple-converted-space">    </span>&lt;/ul&gt;</span></p>
-<p class="p1"><span class="s1"><span class="Apple-converted-space">    </span>&lt;footer&gt;Updated every 60 seconds | Data from On3&lt;/footer&gt;</span></p>
-<p class="p1"><span class="s1">&lt;/body&gt;</span></p>
-<p class="p1"><span class="s1">&lt;/html&gt;</span></p>
+
+  <header class="site-header">
+    <h1>PortalDecision.com</h1>
+    <p class="subtitle">NCAA Transfer Portal Breaking News</p>
+  </header>
+
+  <main class="container">
+    {% for update in updates %}
+    <div class="card">
+      <h2>{{ update.title }}</h2>
+      <p><strong>Sport:</strong> {{ update.sport }}</p>
+      <p><strong>From:</strong> {{ update.from_school }}</p>
+      <p><strong>To:</strong> {{ update.to_school }}</p>
+      <a href="{{ update.link }}" class="read-more" target="_blank">Read More</a>
+    </div>
+    {% endfor %}
+  </main>
+
+  <footer>
+    Updated every 60 seconds | Data from On3
+  </footer>
+
 </body>
 </html>
