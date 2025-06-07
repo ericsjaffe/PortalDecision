@@ -35,19 +35,18 @@ body {
   box-shadow: 0 2px 6px rgba(0, 0, 0, 0.1);
 }
 
-.card h2 {
-  margin-top: 0;
-}
-
 .read-more {
+  display: inline-block;
+  margin-top: 10px;
   color: #007BFF;
-  text-decoration: none;
   font-weight: bold;
+  text-decoration: none;
 }
 
 .read-more:hover {
   text-decoration: underline;
 }
+
 
 footer {
   text-align: center;
