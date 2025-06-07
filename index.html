@@ -2,33 +2,31 @@
 <html lang="en">
 <head>
   <meta charset="UTF-8">
-  <title>PortalDecision - Transfer Portal Updates</title>
+  <title>PortalDecision - NCAA Transfer Portal Updates</title>
   <link rel="stylesheet" href="/static/style.css">
-  <meta http-equiv="refresh" content="60">
+  <meta http-equiv="refresh" content="300"> <!-- Refresh every 5 mins -->
 </head>
 <body>
 
   <header class="site-header">
-    <h1>PortalDecision.com</h1>
-    <p class="subtitle">NCAA Transfer Portal Breaking News</p>
+    <h1>PortalDecision</h1>
+    <p class="subtitle">Live NCAA Transfer Portal Tracker</p>
   </header>
 
-  <main class="container">
+  <main class="grid">
     {% for update in updates %}
-      <div class="card">
+    <div class="card">
+      <a href="{{ update.link }}" target="_blank">
         <h2>{{ update.title }}</h2>
-        <p><strong>Sport:</strong> {{ update.sport }}</p>
-        <p><strong>From:</strong> {{ update.from_school }}</p>
-        <p><strong>To:</strong> {{ update.to_school }}</p>
-        <a href="{{ update.link }}" class="read-more" target="_blank">Read More</a>
-      </div>
-    {% else %}
-      <p>No updates available at the moment.</p>
+        <p class="meta">{{ update.from_school }} → {{ update.to_school }}</p>
+        <p class="sport">{{ update.sport }}</p>
+      </a>
+    </div>
     {% endfor %}
   </main>
 
   <footer>
-    Updated every 60 seconds | Data from On3
+    <p>Data sourced from On3 • Updated every 5 minutes</p>
   </footer>
 
 </body>
