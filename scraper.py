@@ -8,11 +8,22 @@ def get_transfer_updates():
     soup = BeautifulSoup(response.text, "html.parser")
 
     updates = []
-    for row in soup.select("article"):
-        name = row.select_one("h3")
-        school = row.select_one("span")
-        if name and school:
-            updates.append(f"{name.text.strip()} – {school.text.strip()}")
-        if len(updates) >= 10:
-            break
+
+    for article in soup.select("article")[:10]:  # limit to 10 items
+        name_el = article.select_one("h3")
+        detail_el = article.select_one("span")
+        link_el = article.find("a", href=True)
+
+        name = name_el.text.strip() if name_el else "Unnamed Player"
+        detail = detail_el.text.strip() if detail_el else ""
+        link = link_el["href"] if link_el else "#"
+
+        updates.append({
+            "title": name,
+            "sport": "Unknown",           # placeholder — update if you can parse sport
+            "from_school": "Unknown",     # placeholder — update if info available
+            "to_school": detail,
+            "link": link
+        })
+
     return updates
