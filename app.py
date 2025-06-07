@@ -14,3 +14,11 @@ def api_updates():
 
 if __name__ == "__main__":
     app.run(debug=True)
+updates = [
+    {
+        "title": "Joson Sanon commits to St. John’s",
+        "sport": "Men's Basketball",
+        "from_school": "UMass",
+        "to_school": "St. John's",
+        "link": "https://example.com/article1"
+    },
